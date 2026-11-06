@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniProbe — Ask Every AI Model the Same Question</title>
+    <meta name="description" content="Compare answers across dozens of AI models simultaneously using Pollinations.ai with Bring Your Own Pollen (BYOP).">
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@pollinations/ui@0.1.0-alpha.20/dist/connect.js"></script>
+    <script type="module" src="./pollinations-client.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="logo">OP</div>
+            <div>
+                <h1>OmniProbe</h1>
+                <p>Ask Every AI Model the Same Question · Powered by <a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener">pollinations.ai</a></p>
+            </div>
+        </div>
+        <div class="auth-bar">
+            <span id="auth-status" class="pill">0-Pollen Offline Mode Ready</span>
+            <polli-connect app-key="pk_zM4Wvtd1rgWXRmLP" budget="5" expiry="7" models="text"></polli-connect>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="prompt-box">
+            <h2>The Universal Question Probe</h2>
+            <p>Inspired by the viral study <em>"Every AI model has the same controversial take on humans"</em>. Broadcast a single prompt to multiple top AI models side-by-side.</p>
+            
+            <div class="sample-pills" id="sample-pills"></div>
+
+            <div class="input-row">
+                <textarea id="probe-input" rows="3" placeholder="Type a controversial or philosophical question for all models..."></textarea>
+            </div>
+
+            <div class="controls-row">
+                <div class="model-toggles" id="model-toggles">
+                    <!-- Toggles for models -->
+                </div>
+                <div class="action-buttons">
+                    <button id="btn-broadcast-live" class="btn btn-primary">Broadcast to Models (BYOP)</button>
+                    <button id="btn-sim-offline" class="btn btn-secondary">Run Offline Probe (0 Pollen)</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-grid" id="results-grid">
+            <!-- Model response cards -->
+        </section>
+
+        <footer class="footer">
+            <a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener">
+                <img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai" height="28">
+            </a>
+            <p>Built for <a href="https://github.com/pollinations/pollinations/issues/19183" target="_blank" rel="noopener">Pollinations Quest #19183</a> · Bring Your Own Pollen (BYOP)</p>
+        </footer>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
