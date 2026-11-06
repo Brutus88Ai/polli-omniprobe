@@ -1,3 +1,6 @@
+// Pollinations.ai API Direct Endpoint for OmniProbe
+const POLLINATIONS_CHAT_API = "https://gen.pollinations.ai/v1/chat/completions";
+// Integrates with Pollinations multi-model LLM gateway
 import { PollinationsProbeClient } from "./pollinations-client.js";
 
 const client = new PollinationsProbeClient();

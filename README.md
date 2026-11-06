@@ -1,16 +1,23 @@
-# OmniProbe — Ask Every AI Model the Same Question
+# OmniProbe - Simultaneous Multi-Model AI Question Probe
 
 [![Made with pollinations.ai](https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg)](https://pollinations.ai/?ref=badge)
 
-**Live App:** [https://brutus88ai.github.io/polli-omniprobe/](https://brutus88ai.github.io/polli-omniprobe/)  
-**Quest:** [pollinations/pollinations#19183](https://github.com/pollinations/pollinations/issues/19183)
+**OmniProbe** is a multi-model broadcast comparison engine powered by the [Pollinations](https://pollinations.ai/) API (`https://gen.pollinations.ai/v1/chat/completions`). It asks the same user prompt across multiple leading AI models (OpenAI, Claude, Qwen, DeepSeek, Mistral, Llama) simultaneously and presents side-by-side responses.
 
-OmniProbe broadcasts a single prompt across dozens of diverse AI models simultaneously (OpenAI, Claude, Gemini, Mistral, Qwen, DeepSeek) via **Pollinations**, displaying synchronized outputs side-by-side with latency benchmarking and zero-pollen offline comparison modes.
+Built for the **Pollinations Quest #19183: [QUEST] An app or game about asking every model the same question**.
 
-![OmniProbe Screenshot](https://raw.githubusercontent.com/Brutus88Ai/polli-omniprobe/main/docs/screenshot.png)
+## Features
 
-## Highlights
+- **Concurrent Multi-Model Broadcast**: Query up to 6 models in parallel.
+- **Pollinations Integration**: Direct integration with `https://gen.pollinations.ai/v1/chat/completions`.
+- **Zero-Pollen Mode**: Includes built-in offline comparison cache so users can test immediately without spending any Pollen.
+- **Bring Your Own Pollen (BYOP)**: Integrated `<polli-connect>` component allowing users to sign in and spend their own Pollen.
 
-- **Simultaneous Broadcast**: Sends queries concurrently across top LLMs through Pollinations' unified API (`https://gen.pollinations.ai/v1/chat/completions`).
-- **Bring Your Own Pollen (BYOP)**: Users connect directly via `<polli-connect>` (@pollinations/ui) to spend their own Pollen.
-- **0-Pollen Offline Mode**: Includes pre-cached responses for philosophical and controversial dilemma prompts so visitors can explore multi-model synthesis with 0 cost.
+## Live Demo
+
+- **Live App**: https://brutus88ai.github.io/polli-omniprobe/
+- **Repository**: https://github.com/Brutus88Ai/polli-omniprobe
+
+## License
+
+MIT
