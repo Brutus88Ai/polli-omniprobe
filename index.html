@@ -1,63 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniProbe — Ask Every AI Model the Same Question</title>
-    <meta name="description" content="Compare answers across dozens of AI models simultaneously using Pollinations.ai with Bring Your Own Pollen (BYOP).">
-    <link rel="stylesheet" href="./styles.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/@pollinations/ui@0.1.0-alpha.20/dist/connect.js"></script>
-    <script type="module" src="./pollinations-client.js"></script>
-</head>
-<body>
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">OP</div>
-            <div>
-                <h1>OmniProbe</h1>
-                <p>Ask Every AI Model the Same Question · Powered by <a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener">pollinations.ai</a></p>
-            </div>
-        </div>
-        <div class="auth-bar">
-            <span id="auth-status" class="pill">0-Pollen Offline Mode Ready</span>
-            <polli-connect app-key="pk_zM4Wvtd1rgWXRmLP" budget="5" expiry="7" models="text"></polli-connect>
-        </div>
-    </header>
-
-    <main class="container">
-        <section class="prompt-box">
-            <h2>The Universal Question Probe</h2>
-            <p>Inspired by the viral study <em>"Every AI model has the same controversial take on humans"</em>. Broadcast a single prompt to multiple top AI models side-by-side.</p>
-            
-            <div class="sample-pills" id="sample-pills"></div>
-
-            <div class="input-row">
-                <textarea id="probe-input" rows="3" placeholder="Type a controversial or philosophical question for all models..."></textarea>
-            </div>
-
-            <div class="controls-row">
-                <div class="model-toggles" id="model-toggles">
-                    <!-- Toggles for models -->
-                </div>
-                <div class="action-buttons">
-                    <button id="btn-broadcast-live" class="btn btn-primary">Broadcast to Models (BYOP)</button>
-                    <button id="btn-sim-offline" class="btn btn-secondary">Run Offline Probe (0 Pollen)</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="results-grid" id="results-grid">
-            <!-- Model response cards -->
-        </section>
-
-        <footer class="footer">
-            <a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener">
-                <img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai" height="28">
-            </a>
-            <p>Built for <a href="https://github.com/pollinations/pollinations/issues/19183" target="_blank" rel="noopener">Pollinations Quest #19183</a> · Bring Your Own Pollen (BYOP)</p>
-        </footer>
-    </main>
-
-    <script type="module" src="./app.js"></script>
-</body>
-</html>
+-<-!-D-O-C-T-Y-P-E- -h-t-m-l->-
+-<-h-t-m-l- -l-a-n-g-=-"-e-n-"->-
+-<-h-e-a-d->-
+- - - - -<-m-e-t-a- -c-h-a-r-s-e-t-=-"-U-T-F---8-"->-
+- - - - -<-m-e-t-a- -n-a-m-e-=-"-v-i-e-w-p-o-r-t-"- -c-o-n-t-e-n-t-=-"-w-i-d-t-h-=-d-e-v-i-c-e---w-i-d-t-h-,- -i-n-i-t-i-a-l---s-c-a-l-e-=-1-.-0-"->-
+- - - - -<-t-i-t-l-e->-O-m-n-i-P-r-o-b-e- --- -A-s-k- -E-v-e-r-y- -A-I- -M-o-d-e-l- -t-h-e- -S-a-m-e- -Q-u-e-s-t-i-o-n-<-/-t-i-t-l-e->-
+- - - - -<-m-e-t-a- -n-a-m-e-=-"-d-e-s-c-r-i-p-t-i-o-n-"- -c-o-n-t-e-n-t-=-"-C-o-m-p-a-r-e- -a-n-s-w-e-r-s- -a-c-r-o-s-s- -d-o-z-e-n-s- -o-f- -A-I- -m-o-d-e-l-s- -s-i-m-u-l-t-a-n-e-o-u-s-l-y- -u-s-i-n-g- -P-o-l-l-i-n-a-t-i-o-n-s-.-a-i- -w-i-t-h- -B-r-i-n-g- -Y-o-u-r- -O-w-n- -P-o-l-l-e-n- -(-B-Y-O-P-)-.-"->-
+- - - - -<-l-i-n-k- -r-e-l-=-"-s-t-y-l-e-s-h-e-e-t-"- -h-r-e-f-=-"-.-/-s-t-y-l-e-s-.-c-s-s-"->-
+- - - - -<-s-c-r-i-p-t- -d-e-f-e-r- -s-r-c-=-"-h-t-t-p-s-:-/-/-c-d-n-.-j-s-d-e-l-i-v-r-.-n-e-t-/-n-p-m-/-@-p-o-l-l-i-n-a-t-i-o-n-s-/-u-i-@-0-.-1-.-0---a-l-p-h-a-.-2-0-/-d-i-s-t-/-c-o-n-n-e-c-t-.-j-s-"->-<-/-s-c-r-i-p-t->-
+- - - - -<-s-c-r-i-p-t- -t-y-p-e-=-"-m-o-d-u-l-e-"- -s-r-c-=-"-.-/-p-o-l-l-i-n-a-t-i-o-n-s---c-l-i-e-n-t-.-j-s-"->-<-/-s-c-r-i-p-t->-
+-<-/-h-e-a-d->-
+-<-b-o-d-y->-
+- - - - -<-h-e-a-d-e-r- -c-l-a-s-s-=-"-t-o-p-b-a-r-"->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-b-r-a-n-d-"->-
+- - - - - - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-l-o-g-o-"->-O-P-<-/-d-i-v->-
+- - - - - - - - - - - - -<-d-i-v->-
+- - - - - - - - - - - - - - - - -<-h-1->-O-m-n-i-P-r-o-b-e-<-/-h-1->-
+- - - - - - - - - - - - - - - - -<-p->-A-s-k- -E-v-e-r-y- -A-I- -M-o-d-e-l- -t-h-e- -S-a-m-e- -Q-u-e-s-t-i-o-n- -·- -P-o-w-e-r-e-d- -b-y- -<-a- -h-r-e-f-=-"-h-t-t-p-s-:-/-/-p-o-l-l-i-n-a-t-i-o-n-s-.-a-i-/-?-r-e-f-=-b-a-d-g-e-"- -t-a-r-g-e-t-=-"-_-b-l-a-n-k-"- -r-e-l-=-"-n-o-o-p-e-n-e-r-"->-p-o-l-l-i-n-a-t-i-o-n-s-.-a-i-<-/-a->-<-/-p->-
+- - - - - - - - - - - - -<-/-d-i-v->-
+- - - - - - - - -<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-a-u-t-h---b-a-r-"->-
+- - - - - - - - - - - - -<-s-p-a-n- -i-d-=-"-a-u-t-h---s-t-a-t-u-s-"- -c-l-a-s-s-=-"-p-i-l-l-"->-0---P-o-l-l-e-n- -O-f-f-l-i-n-e- -M-o-d-e- -R-e-a-d-y-<-/-s-p-a-n->-
+- - - - - - - - - - - - -<-p-o-l-l-i---c-o-n-n-e-c-t- -a-p-p---k-e-y-=-"-p-k-_-z-M-4-W-v-t-d-1-r-g-W-X-R-m-L-P-"- -b-u-d-g-e-t-=-"-5-"- -e-x-p-i-r-y-=-"-7-"- -m-o-d-e-l-s-=-"-t-e-x-t-"->-<-/-p-o-l-l-i---c-o-n-n-e-c-t->-
+- - - - - - - - -<-/-d-i-v->-
+- - - - -<-/-h-e-a-d-e-r->-
+-
+- - - - -<-m-a-i-n- -c-l-a-s-s-=-"-c-o-n-t-a-i-n-e-r-"->-
+- - - - - - - - -<-s-e-c-t-i-o-n- -c-l-a-s-s-=-"-p-r-o-m-p-t---b-o-x-"->-
+- - - - - - - - - - - - -<-h-2->-T-h-e- -U-n-i-v-e-r-s-a-l- -Q-u-e-s-t-i-o-n- -P-r-o-b-e-<-/-h-2->-
+- - - - - - - - - - - - -<-p->-I-n-s-p-i-r-e-d- -b-y- -t-h-e- -v-i-r-a-l- -s-t-u-d-y- -<-e-m->-"-E-v-e-r-y- -A-I- -m-o-d-e-l- -h-a-s- -t-h-e- -s-a-m-e- -c-o-n-t-r-o-v-e-r-s-i-a-l- -t-a-k-e- -o-n- -h-u-m-a-n-s-"-<-/-e-m->-.- -B-r-o-a-d-c-a-s-t- -a- -s-i-n-g-l-e- -p-r-o-m-p-t- -t-o- -m-u-l-t-i-p-l-e- -t-o-p- -A-I- -m-o-d-e-l-s- -s-i-d-e---b-y---s-i-d-e-.-<-/-p->-
+- - - - - - - - - - - - -
+- - - - - - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-s-a-m-p-l-e---p-i-l-l-s-"- -i-d-=-"-s-a-m-p-l-e---p-i-l-l-s-"->-<-/-d-i-v->-
+-
+- - - - - - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-i-n-p-u-t---r-o-w-"->-
+- - - - - - - - - - - - - - - - -<-t-e-x-t-a-r-e-a- -i-d-=-"-p-r-o-b-e---i-n-p-u-t-"- -r-o-w-s-=-"-3-"- -p-l-a-c-e-h-o-l-d-e-r-=-"-T-y-p-e- -a- -c-o-n-t-r-o-v-e-r-s-i-a-l- -o-r- -p-h-i-l-o-s-o-p-h-i-c-a-l- -q-u-e-s-t-i-o-n- -f-o-r- -a-l-l- -m-o-d-e-l-s-.-.-.-"->-<-/-t-e-x-t-a-r-e-a->-
+- - - - - - - - - - - - -<-/-d-i-v->-
+-
+- - - - - - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-c-o-n-t-r-o-l-s---r-o-w-"->-
+- - - - - - - - - - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-m-o-d-e-l---t-o-g-g-l-e-s-"- -i-d-=-"-m-o-d-e-l---t-o-g-g-l-e-s-"->-
+- - - - - - - - - - - - - - - - - - - - -<-!----- -T-o-g-g-l-e-s- -f-o-r- -m-o-d-e-l-s- ----->-
+- - - - - - - - - - - - - - - - -<-/-d-i-v->-
+- - - - - - - - - - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-a-c-t-i-o-n---b-u-t-t-o-n-s-"->-
+- - - - - - - - - - - - - - - - - - - - -<-b-u-t-t-o-n- -i-d-=-"-b-t-n---b-r-o-a-d-c-a-s-t---l-i-v-e-"- -c-l-a-s-s-=-"-b-t-n- -b-t-n---p-r-i-m-a-r-y-"->-B-r-o-a-d-c-a-s-t- -t-o- -M-o-d-e-l-s- -(-B-Y-O-P-)-<-/-b-u-t-t-o-n->-
+- - - - - - - - - - - - - - - - - - - - -<-b-u-t-t-o-n- -i-d-=-"-b-t-n---s-i-m---o-f-f-l-i-n-e-"- -c-l-a-s-s-=-"-b-t-n- -b-t-n---s-e-c-o-n-d-a-r-y-"->-R-u-n- -O-f-f-l-i-n-e- -P-r-o-b-e- -(-0- -P-o-l-l-e-n-)-<-/-b-u-t-t-o-n->-
+- - - - - - - - - - - - - - - - -<-/-d-i-v->-
+- - - - - - - - - - - - -<-/-d-i-v->-
+- - - - - - - - -<-/-s-e-c-t-i-o-n->-
+-
+- - - - - - - - -<-s-e-c-t-i-o-n- -c-l-a-s-s-=-"-r-e-s-u-l-t-s---g-r-i-d-"- -i-d-=-"-r-e-s-u-l-t-s---g-r-i-d-"->-
+- - - - - - - - - - - - -<-!----- -M-o-d-e-l- -r-e-s-p-o-n-s-e- -c-a-r-d-s- ----->-
+- - - - - - - - -<-/-s-e-c-t-i-o-n->-
+-
+- - - - - - - - -<-f-o-o-t-e-r- -c-l-a-s-s-=-"-f-o-o-t-e-r-"->-
+- - - - - - - - - - - - -<-a- -h-r-e-f-=-"-h-t-t-p-s-:-/-/-p-o-l-l-i-n-a-t-i-o-n-s-.-a-i-/-?-r-e-f-=-b-a-d-g-e-"- -t-a-r-g-e-t-=-"-_-b-l-a-n-k-"- -r-e-l-=-"-n-o-o-p-e-n-e-r-"->-
+- - - - - - - - - - - - - - - - -<-i-m-g- -s-r-c-=-"-h-t-t-p-s-:-/-/-r-a-w-.-g-i-t-h-u-b-u-s-e-r-c-o-n-t-e-n-t-.-c-o-m-/-p-o-l-l-i-n-a-t-i-o-n-s-/-p-o-l-l-i-n-a-t-i-o-n-s-/-m-a-i-n-/-p-a-c-k-a-g-e-s-/-u-i-/-s-r-c-/-b-r-a-n-d-/-b-a-d-g-e---m-a-d-e---w-i-t-h-.-s-v-g-"- -a-l-t-=-"-M-a-d-e- -w-i-t-h- -p-o-l-l-i-n-a-t-i-o-n-s-.-a-i-"- -h-e-i-g-h-t-=-"-2-8-"->-
+- - - - - - - - - - - - -<-/-a->-
+- - - - - - - - - - - - -<-p->-B-u-i-l-t- -f-o-r- -<-a- -h-r-e-f-=-"-h-t-t-p-s-:-/-/-g-i-t-h-u-b-.-c-o-m-/-p-o-l-l-i-n-a-t-i-o-n-s-/-p-o-l-l-i-n-a-t-i-o-n-s-/-i-s-s-u-e-s-/-1-9-1-8-3-"- -t-a-r-g-e-t-=-"-_-b-l-a-n-k-"- -r-e-l-=-"-n-o-o-p-e-n-e-r-"->-P-o-l-l-i-n-a-t-i-o-n-s- -Q-u-e-s-t- -#-1-9-1-8-3-<-/-a->- -·- -B-r-i-n-g- -Y-o-u-r- -O-w-n- -P-o-l-l-e-n- -(-B-Y-O-P-)-<-/-p->-
+- - - - - - - - -<-/-f-o-o-t-e-r->-
+- - - - -<-/-m-a-i-n->-
+-
+- - - - -<-s-c-r-i-p-t- -t-y-p-e-=-"-m-o-d-u-l-e-"- -s-r-c-=-"-.-/-a-p-p-.-j-s-"->-<-/-s-c-r-i-p-t->-
+-<-/-b-o-d-y->-
+-<-/-h-t-m-l->-
+-
