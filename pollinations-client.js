@@ -6,7 +6,8 @@ export class PollinationsProbeClient {
     }
 
     getToken() {
-        return localStorage.getItem("polli:key") || localStorage.getItem("pollinations_api_key") || null;
+        const widget = typeof document !== "undefined" ? document.querySelector("polli-connect") : null;
+        return widget?.apiKey || localStorage.getItem("polli:key") || localStorage.getItem("pollinations_api_key") || null;
     }
 
     async askModel(modelId, prompt) {

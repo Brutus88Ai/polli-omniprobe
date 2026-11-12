@@ -26,15 +26,14 @@ import { PollinationsProbeClient } from "./pollinations-client.js";
 const client = new PollinationsProbeClient();
 
 const MODELS = [
-    { id: "openai", name: "OpenAI GPT", provider: "OpenAI" },
-    { id: "claude-fast", name: "Claude Fast", provider: "Anthropic" },
-    { id: "gemini-fast", name: "Gemini Fast", provider: "Google" },
-    { id: "mistral", name: "Mistral", provider: "Mistral AI" },
-    { id: "qwen", name: "Qwen", provider: "Alibaba" },
-    { id: "deepseek", name: "DeepSeek", provider: "DeepSeek" }
+    { id: "openai/gpt-5.4-nano", name: "OpenAI GPT-5.4 Nano", provider: "OpenAI" },
+    { id: "google/gemini-3.8-flash", name: "Gemini 3.8 Flash", provider: "Google" },
+    { id: "mistralai/mistral-small-4", name: "Mistral Small 4", provider: "Mistral AI" },
+    { id: "qwen/qwen3.8-flash", name: "Qwen 3.8 Flash", provider: "Alibaba" },
+    { id: "deepseek/deepseek-v4.1-flash", name: "DeepSeek V4.1 Flash", provider: "DeepSeek" }
 ];
 
-let selectedModels = new Set(["openai", "claude-fast", "gemini-fast", "mistral"]);
+let selectedModels = new Set(["openai/gpt-5.4-nano", "google/gemini-3.8-flash", "mistralai/mistral-small-4", "qwen/qwen3.8-flash"]);
 
 const SAMPLE_PROMPTS = [
     { title: "Humanity's Flaw", prompt: "What is humanity's single most controversial yet persistent flaw?" },
@@ -45,12 +44,11 @@ const SAMPLE_PROMPTS = [
 
 const OFFLINE_CACHE = {
     "Humanity's Flaw": {
-        openai: "Humanity's most persistent flaw is hyperbolic short-termism: prioritizing immediate gratification over systemic multigenerational survival.",
-        "claude-fast": "The tendency to mistake cognitive tribalism for objective moral clarity — creating in-groups that view compromise as existential defeat.",
-        "gemini-fast": "The asymmetry between technological velocity and emotional maturity. Humanity builds godlike tools while operating on hunter-gatherer threat-detection circuits.",
-        mistral: "Self-deception: the instinct to construct elaborate rationalizations to justify ancient primal drives rather than acknowledging them openly.",
-        qwen: "The inability to balance individual autonomy with collective harmony, causing repetitive pendulum swings between authoritarian order and chaotic atomization.",
-        deepseek: "A structural paradox where competitive zero-sum instincts outpace collective coordination mechanisms, threatening systemic stability."
+        "openai/gpt-5.4-nano": "Humanity's most persistent flaw is hyperbolic short-termism: prioritizing immediate gratification over systemic multigenerational survival.",
+        "google/gemini-3.8-flash": "The asymmetry between technological velocity and emotional maturity. Humanity builds godlike tools while operating on hunter-gatherer threat-detection circuits.",
+        "mistralai/mistral-small-4": "Self-deception: the instinct to construct elaborate rationalizations to justify ancient primal drives rather than acknowledging them openly.",
+        "qwen/qwen3.8-flash": "The inability to balance individual autonomy with collective harmony, causing repetitive pendulum swings between authoritarian order and chaotic atomization.",
+        "deepseek/deepseek-v4.1-flash": "A structural paradox where competitive zero-sum instincts outpace collective coordination mechanisms, threatening systemic stability."
     }
 };
 
@@ -151,11 +149,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-broadcast-live").addEventListener("click", handleBroadcastLive);
     document.getElementById("btn-sim-offline").addEventListener("click", handleOfflineProbe);
 
-    document.addEventListener("polli-connect", (e) => {
-        const key = e.detail?.key || e.detail?.apiKey || e.detail?.token;
-        if (key) {
-            localStorage.setItem("polli:key", key);
-            document.getElementById("auth-status").textContent = `BYOP Connected (${key.slice(0, 6)}…)`;
-        }
-    });
+    const connectWidget = document.querySelector("polli-connect");
+    if (connectWidget) {
+        connectWidget.addEventListener("change", () => {
+            const key = connectWidget.apiKey;
+            if (key) {
+                localStorage.setItem("polli:key", key);
+                document.getElementById("auth-status").textContent = `BYOP Connected (${key.slice(0, 6)}…)`;
+            } else {
+                localStorage.removeItem("polli:key");
+                document.getElementById("auth-status").textContent = "0-Pollen Offline Mode Ready";
+            }
+        });
+    }
 });
